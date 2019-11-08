@@ -1,55 +1,54 @@
+# Helpers experiments
 
-# EXAMPLE TWO #
-###############
-class Person 
-	attr_reader :cook
-	def make_me_a_sandwich 
-		cook.make_me_a_sandwich
+puts
+puts "*****"
+puts
+
+class Cook 
+	def make_a_sandwich(type='ham') 
+		puts "a #{type} sandwich"
+		self
 	end
 end
-class Cook 
-	def make_me_a_sandwich 
-		puts "a sandwich"
+class Person
+	def order_a_sandwich(cook:, type: 'ham')
+		cook.make_a_sandwich(type)
 		self
 	end
 end
 
-# add forwardable - better than defining twice
-# but then its actually its a query now
+puts "Simple"
+puts "------"
+me = Person.new
+me.order_a_sandwich(cook: Cook.new)
+puts
+puts "*****"
+puts
+
+
+# use forwardable - to avoid defining twice
+# but then its actually its a query now & cook MUST already be eastward!
+require 'forwardable'
 class Person 
 	extend Forwardable
-	delegate :make_a_sandwich => :cook
+	delegate :make_a_sandwich    => :cook
+	alias_method :order_a_sandwich, :make_a_sandwich
+	def initialize(cook:)
+		@cook = cook 
+	end
+	private 
 	attr_reader :cook
 end
-class Cook 
-	def make_a_sandwich 
-		puts "a sandwich"
-		self
-	end
-end
 
-# look at gem direction - to force commands not queries!
-class Person 
-	extend Eastward
-	command :make_a_sandwich => :cook
-	# with multiple methods
-	command [:greet_people, :serve_drinks] => :butler
-	private
-	attr_reader :butler
-end
-class Cook 
-	def make_a_sandwich 
-		puts "a sandwich"
-	end
-end
-class Butler 
-	def greet_people 
-		puts "Greetings!"
-	end
-	def serve_drinks 
-		puts "Your drink is served"
-	end
-end
+puts "Forwardable"
+puts "-----------"
+me = Person.new(cook: Cook.new)
+me.order_a_sandwich
+puts
+puts "*****"
+puts
+
+
 
 # gem direction is very simple 
 # give command a hash, keys are the methods, values are accessors to operate on
@@ -60,7 +59,7 @@ module Eastward
 		options.each_pair do |key, value|
 			Array(key).map do |command_name|
 				method_defs.unshift %{
-					def #{command_name}(*args. &block)
+					def #{command_name}(*args, &block)
 						#{value}.__send__(:#{command_name}, *args, &block)
 						self
 					end
@@ -71,3 +70,37 @@ module Eastward
 	end
 end
 
+class Butler 
+	def greet_people 
+		puts "Greetings!"
+	end
+	def serve_drinks 
+		puts "Your drink is served"
+	end
+end
+
+# look at module - to force commands not queries!
+# even when not already Eastward
+class Person 
+	extend Eastward
+	command [:greet_people, :serve_drinks] => :butler
+	command :make_a_sandwich               => :cook
+	alias_method :order_a_sandwich, :make_a_sandwich
+
+	def initialize(cook:, butler:)
+		@cook   = cook 
+		@butler = butler 
+	end
+	private
+	attr_reader :cook, :butler
+end
+
+puts "Eastward Module"
+puts "---------------"
+me = Person.new(cook: Cook.new, butler: Butler.new)
+me.greet_people
+me.serve_drinks
+me.order_a_sandwich
+puts
+puts "*****"
+puts
