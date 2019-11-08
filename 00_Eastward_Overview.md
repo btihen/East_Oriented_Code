@@ -1,35 +1,49 @@
-# East_Oriented
+# Eastward Oriented
 
-EastOriented - MESSAGING RULES
+
+## Summary
+
+MESSAGING (Focus of OOD)
 - tell dont ask!
 - avoid unneeded context
 
-4 Rules (summary)
-=================
+GOAL:
+=====
+Rules to design good messaging; AKA good OOD (as described by Dr. Alan Kay)
+
+4 Rules (Practice)
+==================
 1) Always return self 
 2) Objects may only query themselves (their own attributes & methods)
 3) Factories are exempt
 4) BreakRules sparingly (at some point code must return a value to the user / hard-drive, etc)
 
+East Oriented (Results)
+=======================
+1) Descrease Coupling
+2) Increases Code Clarity
+3) Increases Code Coheason 
+4) Increases Code Flexibility
+5) Increases Scope Enforcement / Data Security
 
-Dr. Alan Kay 
-Meaning of “Object-Oriented Programming”
-http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
 
-Alan Kay Summary 
-http://mythz.servicestack.net/blog/2013/02/27/the-deep-insights-of-alan-kay/
+## Background Info
 
-James Ladd (Java): 
+by James Ladd (Java): 
 - new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
 - original post "A Design Compass: East Oriented": http://jamesladdcode.com/2007/02/14/east-a-technique/
 
-GOAL:
------
-Rules to easily design good messaging aka good OOD (as described by Dr. Alan Kay)
+Many people cite this souce as inspiration: _The Meaning of "Object-Oriented Programming"_
+http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
 
-# sample code: chess game & discussion (Java): 
-# https://github.com/TheSecretSquad/chess
-# James Ladd - Suggested Blog: https://thesecretsquad.wordpress.com/2014/10/25/dazed-and-confuzzled/
+Alan Kay Quotes: 
+http://mythz.servicestack.net/blog/2013/02/27/the-deep-insights-of-alan-kay/
+
+James Ladd
+- Suggested sample code (chess game & discussion) 
+https://github.com/TheSecretSquad/chess
+- Suggested Blog (suumary):
+https://thesecretsquad.wordpress.com/2014/10/25/dazed-and-confuzzled/
 The receiving objects respond to messages by changing their state or sending other messages, which their collaborators receive, and so on. Objects don’t know who is responding to the message, and in many cases they don’t know what will happen in response. They just know to send the message and trust the object hooked up to it at run time responds with the correct behavior.
 The thing about messaging is data becomes irrelevant. Data is hidden within objects, and used to store the state of objects. Objects use this state to decide which messages they should send. Objects can’t ask collaborators for their state or data and operate on it. The only way objects release state is by sending a message signaling a significant event. Other objects can register to receive the message and respond to it. This type of design naturally leads to East Oriented code because you’re not returning data (west).
 
@@ -49,7 +63,8 @@ dog.express_happiness if ball_thrown
 use:
 dog.ball_thrown
 
-# http://c2.com/doc/oopsla89/paper.html
+
+http://c2.com/doc/oopsla89/paper.html
 Kent Beck and Ward Cunningham said, “The most difficult problem in teaching object-oriented programming is getting the learner to give up the global knowledge of control that is possible with procedural programs, and rely on the local knowledge of objects to accomplish their tasks.”[3]
 
 
@@ -57,24 +72,9 @@ EastOriented - tell-dont-ask
 MESSAGING RULES - avoid unneeded context
 
 
-RUBY - Jim Gay (RubyConf 2014)
-----
-4 Rules (summary)
------------------
-1) Always return self 
-2) Objects may only query themselves (their own attributes & methods)
-3) Factories are exempt
-4) BreakRules sparingly (at some point code must return a value to the user / hard-drive, etc)
+## RUBY Focus
 
-
-East Oriented (GOALS)
----------------------
-1) Descrease Coupling
-2) Increases Code Clarity
-3) Increases Code Coheason 
-4) Increases Code Flexibility
-2) Increases Scope Enforcement / Data Security
-
+Jim Gay (RubyConf 2014)
 
 Talk: Eastward Ho! A Clear Path Through Ruby With OO
 -----
@@ -88,8 +88,25 @@ https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-2
 https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-3
 https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-4
 
+4 Rules (summary)
+-----------------
+1) Always return self 
+2) Objects may only query themselves (their own attributes & methods)
+3) Factories are exempt
+4) BreakRules sparingly (at some point code must return a value to the user / hard-drive, etc)
 
-Jim Weirich - "Decoupling from Rails" 
+East Oriented (GOALS)
+---------------------
+1) Descrease Coupling
+2) Increases Code Clarity
+3) Increases Code Coheason 
+4) Increases Code Flexibility
+2) Increases Scope Enforcement / Data Security
+
+
+
+### Jim Weirich - Eastward Rails / Ruby Apps
+"Decoupling from Rails" 
 (EastCode/HexCode with a web app - allowing a large web app to grow)
 https://www.youtube.com/watch?v=tg5RFeSfBM4
 SAMPLE CODE:
@@ -100,14 +117,12 @@ Experimental Rails application to explore decoupling app logic from Rails.
 # Robert "Uncle Bob" Martin - Architecture: The Lost Years
 # https://www.youtube.com/watch?v=HhNIttd87xs
 
-SUPPORT:
-by Robert C. Martin (Uncle Bob)
+#### SUPPORT - by Robert C. Martin (Uncle Bob)
 Test Induced Design Damage?
 https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html
 
 
-CRITISM:
-by DHH
+#### CRITISM - by DHH
 https://dhh.dk/2014/test-induced-design-damage.html
 There may well be proper uses for it outside the domain of web apps.
 
@@ -116,38 +131,42 @@ code & discussion
 https://gist.github.com/dhh/4849a20d2ba89b34b201
 
 
-Object Calisthenics
-===================
-Maybe a better fit for Rails
-----------------------------
-ThoughtWorks Anthology (out of Print)
-by ThoughtWorks (Jeff Bay)
-https://pragprog.com/titles/twa/thoughtworks-anthology
 
-Web Version (PDF)
-9 steps to better software design today, by Jeff Bay
-https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf
-This is a hard exercise, especially because many of these rules are not universally applicable.
-The Rules
----------
-1. One level of indentation per method
-2. Don’t use the ELSE keyword 
-3. Wrap all primitives and Strings
-4. First class collections
-5. One dot per line
-6. Don’t abbreviate
-7. Keep all entities small
-8. No classes with more than two instance variables
-9. No getters/setters/properties
+## USE CASE - where East was very helpful
 
-# another take
-https://williamdurand.fr/2013/06/03/object-calisthenics/
-These rules focus on maintainability, readability, testability, and comprehensibility of your code.
+Data transfer between many services.
+Differing Changes needed different triggers (applied, application fee paid, application received & completed, accepted by school, acceptance confirmed, tution paid, health records submitted, travel plans submitted, visa approved, ...)
+Differing Services need different dqta formats (CSV, PNG, EXCEL, API (json & objects))
+Differing Services had differnt data transport needs (FTP, SCP, API, ect)
 
+### Services Summary 
 
-# My actual use case
+#### Data Sources
+- HR Server (master data source for employees)
+- Admission Server (master data source for students and parents) - API
+- Phone assignment server (master data source for all school phones - employees and students)
+- photographer (student photos)
 
+#### Data Consumers
+- Parental Payments Services Management
+- LDAP Server (master authenication & authorization)
+- Google Services (email, google docs, etc)
+- Canton VD Immegration Applications
+- Academic Management Server (classes, grades, attendance)
+- Travel & Dormitory Absence Tracking (and fire lists)
+- Health Records Tracking
+- Parent Portal
+- Cell Phone 
+- Student / Staff ID Formatter & Printer
+- Restricted WEB Portal (Rails)
+  - for access to student photos
+  - start of year Dormitory assigments 
+    (allows dorm staff to coordinate with admissions - dorm staff don't have access to the admissions server)
+  - start of year Grade / Course assignments 
+    (allows academic planners to coordinate with admissions on new students interests and abilities before creating academic schedules)
 
+### Sample Code
 
+sorry no access to original & way to complex to easily present
 
-
+*Address Code* has many analogies (and much smaller domain to code)
