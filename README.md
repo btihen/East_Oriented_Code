@@ -1,27 +1,31 @@
 # Eastward Oriented
 
-Presentation on Messaging with code samples using East Orientation (& injection)
+### GOAL:
+
+*Rules to design good messaging; AKA good OOD* _(as described by Dr. Alan Kay)__
+
+Many people cite this souce as messaging inspiration: _The Meaning of "Object-Oriented Programming"_
+http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
+
+### Definitions
+
+Presentation on Messaging with code samples using East Orientation (& Injection)
 - *Eastward* is sending a message
 - *Westward* is recieving a message
+- *Injection* avoid hardcoding Classes send in necessary objects as a collaborating varaible
 
-## Summary
+### Summary
 
-- tell (& trust) don't ask!
-- avoid unneeded context
+- Tell (& trust) -- don't ask!
+- Avoid unneeded context
 
-GOAL:
-=====
-Rules to design good messaging; AKA good OOD (as described by Dr. Alan Kay)
-
-4 Rules (Practice)
-==================
-1) Always return self 
-2) Objects may only query themselves (their own attributes & methods)
+### 4 Rules (Practice)
+1) Always return self
+2) Objects may only query their own attributes & methods
 3) Factories are exempt
-4) BreakRules sparingly (at some point code must return a value to the user / hard-drive, etc)
+4) BreakRules sparingly
 
-East Oriented (Results)
-=======================
+### East Oriented (Expected Results)
 1) Descrease Coupling
 2) Increases Code Clarity
 3) Increases Code Coheason 
@@ -29,13 +33,78 @@ East Oriented (Results)
 5) Increases Scope Enforcement / Data Security
 
 
-## Background Info
+# Eastward Rails?
 
-Many people cite this souce as inspiration: _The Meaning of "Object-Oriented Programming"_
-http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
+*Jim Wienrich*
+- _Decoupling from Rails_ - EastCode/HexCode with a web app
+  - https://www.youtube.com/watch?v=tg5RFeSfBM4
+  - SAMPLE CODE: https://github.com/jimweirich/wyriki
+Experimental Rails application to explore decoupling app logic from Rails.
 
-Alan Kay Quotes: 
-http://mythz.servicestack.net/blog/2013/02/27/the-deep-insights-of-alan-kay/
+*Robert Martin* - inspired _Decoupling from Rails_ with his Keynote at Ruby Midwest 2011
+- _Architecture the Lost Years_
+  - https://www.youtube.com/watch?v=hALFGQNeEnU
+  - https://www.youtube.com/watch?v=HhNIttd87xs
+
+### SUPPORT for Decoupled Rails - by Robert C. Martin (Uncle Bob)
+Test Induced Design Damage?
+https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html
+
+
+### CRITISM against Decoupled Rails - by DHH
+Blog: There may well be proper uses for it outside the domain of web apps.
+https://dhh.dk/2014/test-induced-design-damage.html
+
+DHH Sample Code (from Decoupling from Rails talk) - test_induced_design_damage.rb
+code & discussion
+https://gist.github.com/dhh/4849a20d2ba89b34b201
+
+
+# Valid USE CASES
+
+- Backtround Jobs
+- complex CLI scripts
+- Data conversions outputs
+
+### Context when I used
+
+Data transfer between many services.
+Differing Changes needed different triggers (applied, application fee paid, application received & completed, accepted by school, acceptance confirmed, tution paid, health records submitted, travel plans submitted, visa approved, ...)
+Differing Services need different dqta formats (CSV, PNG, EXCEL, API (json & objects))
+Differing Services had differnt data transport needs (FTP, SCP, API, ect)
+
+### Services Summary 
+
+#### Data Sources
+- HR Server (master data source for employees)
+- Admission Server (master data source for students and parents) - API
+- Phone assignment server (master data source for all school phones - employees and students)
+- photographer (student photos)
+
+#### Data Consumers
+- Parental Payments Services Management
+- LDAP Server (master authenication & authorization)
+- Google Services (email, google docs, etc)
+- Canton VD Immegration Applications
+- Academic Management Server (classes, grades, attendance)
+- Travel & Dormitory Absence Tracking (and fire lists)
+- Health Records Tracking
+- Parent Portal
+- Cell Phone 
+- Student / Staff ID Formatter & Printer
+- Restricted WEB Portal (Rails)
+  - for access to student photos
+  - start of year Dormitory assigments 
+    (allows dorm staff to coordinate with admissions - dorm staff don't have access to the admissions server)
+  - start of year Grade / Course assignments 
+    (allows academic planners to coordinate with admissions on new students interests and abilities before creating academic schedules)
+
+### Sample Code
+
+*Address Code* has many analogies (and much smaller domain to code)
+
+
+# Further Info
 
 ### James Ladd: 
 - new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
@@ -78,7 +147,7 @@ EastOriented - tell-dont-ask
 MESSAGING RULES - avoid unneeded context
 
 
-## RUBY Focus
+### RUBY Focus
 
 Jim Gay (RubyConf 2014)
 
@@ -110,73 +179,3 @@ East Oriented (GOALS)
 2) Increases Scope Enforcement / Data Security
 
 
-
-### Jim Weirich - Eastward Rails / Ruby Apps
-"Decoupling from Rails" 
-(EastCode/HexCode with a web app - allowing a large web app to grow)
-https://www.youtube.com/watch?v=tg5RFeSfBM4
-SAMPLE CODE:
-https://github.com/jimweirich/wyriki
-Experimental Rails application to explore decoupling app logic from Rails.
-# inspired by Robert Martin - Ruby Midwest 2011 - Keynote: Architecture the Lost Years
-# https://www.youtube.com/watch?v=hALFGQNeEnU
-# Robert "Uncle Bob" Martin - Architecture: The Lost Years
-# https://www.youtube.com/watch?v=HhNIttd87xs
-
-#### SUPPORT - by Robert C. Martin (Uncle Bob)
-Test Induced Design Damage?
-https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html
-
-
-#### CRITISM - by DHH
-https://dhh.dk/2014/test-induced-design-damage.html
-There may well be proper uses for it outside the domain of web apps.
-
-DHH Sample Code (from Decoupling from Rails talk) - test_induced_design_damage.rb
-code & discussion
-https://gist.github.com/dhh/4849a20d2ba89b34b201
-
-
-
-## USE CASES 
-
-- CLI scripts
-- Backtround Jobs
-- Data conversions outputs
-
-### Context when I used
-
-Data transfer between many services.
-Differing Changes needed different triggers (applied, application fee paid, application received & completed, accepted by school, acceptance confirmed, tution paid, health records submitted, travel plans submitted, visa approved, ...)
-Differing Services need different dqta formats (CSV, PNG, EXCEL, API (json & objects))
-Differing Services had differnt data transport needs (FTP, SCP, API, ect)
-
-### Services Summary 
-
-#### Data Sources
-- HR Server (master data source for employees)
-- Admission Server (master data source for students and parents) - API
-- Phone assignment server (master data source for all school phones - employees and students)
-- photographer (student photos)
-
-#### Data Consumers
-- Parental Payments Services Management
-- LDAP Server (master authenication & authorization)
-- Google Services (email, google docs, etc)
-- Canton VD Immegration Applications
-- Academic Management Server (classes, grades, attendance)
-- Travel & Dormitory Absence Tracking (and fire lists)
-- Health Records Tracking
-- Parent Portal
-- Cell Phone 
-- Student / Staff ID Formatter & Printer
-- Restricted WEB Portal (Rails)
-  - for access to student photos
-  - start of year Dormitory assigments 
-    (allows dorm staff to coordinate with admissions - dorm staff don't have access to the admissions server)
-  - start of year Grade / Course assignments 
-    (allows academic planners to coordinate with admissions on new students interests and abilities before creating academic schedules)
-
-### Sample Code
-
-*Address Code* has many analogies (and much smaller domain to code)
