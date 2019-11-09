@@ -1,6 +1,6 @@
 # Eastward Oriented
 
-### GOAL:
+### GOAL
 
 *Rules to design good messaging; AKA good OOD* _(as described by Dr. Alan Kay)__
 
@@ -33,91 +33,34 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 - **Injection** avoid hardcoding Classes send in necessary objects as a collaborating varaible
 
 
-# Practical USE CASES
+## Sample Code - TOC
+
+*Jim Gay's** sample address code reminded me of when Eastward really helped me 
+(moving data between servers with many format and transport needs and based on many different triggers)
+
+- **00_jim_gay_refactor_process.md** - listing of Jim's refactoring steps to go from East-West to East Oriented Code
+- **01_east_west_address.rb** is east-west, very simple and clear -- great when flexibility isn't needed
+- **02_east_address.rb** is east only and uses an additional template class, but much more flexible
+- **03_east_injection_address.rb** - demostrates how with east and injection very flexible apps can be build
+- **04_east_west_chain_tale.rb** - Sandi Metzt code from "Nothing is Something"
+- **05_east_chain_tale.rb** - Converted Chain Tale code to east code 
+- **06_east_injection_chain_tale.rb** - added Sandi's role injection (like in the talk) with the east code.
+- **07_east_command_module.rb** - code from Jim Gay on East Orientation with Delegation and wrapping non-east code
+- **08_east_injection_alarm.rb** - playing with Avdi Grimm's take on messaging and dynamic injection
+
+
+## Practical USE CASES?
 
 - Backtround Jobs
 - complex CLI scripts
 - Data conversions outputs
 
-
-# Sample Code
-
-*Jim Gay's** sample address code reminded me of when Eastward really helped me 
-(moving data between servers with many format and transport needs and based on many different triggers)
-
-- **01_east_west_address.rb** is east-west, very simple and clear -- great when flexibility isn't needed
-- **02_east_address.rb** is east only and uses an additional template class, but much more flexible
-- **03_east_injection_address.rb** - demostrates how with east and injection very flexible apps can be build
-- **07_east_command_module.rb** - code from Jim Gay on East Orientation with Delegation and wrapping non-east code
-
-- **00_jim_gay_refactor_process.md** - listing of Jim's refactoring steps to go from East-West to East Oriented Code
-- **04_east_west_chain_tale.rb** - Sandi Metzt code from "Nothing is Something"
-- **05_east_chain_tale.rb** - Converted Chain Tale code to east code 
-- **06_east_injection_chain_tale.rb** - added Sandi's role injection (like in the talk) with the east code.
-- **08_east_injection_alarm.rb** - playing with Avdi Grimm's take on messaging and dynamic injection
-
-
-### Resources 
-
-**James Ladd** - started Eastward Oriented (original blog is gone)
-- new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
-
-**Jim Gay** EASTWARD APPLIED to RUBY: (RubyConf 2014) Eastward Ho!
-Talk: https://www.youtube.com/watch?v=kXcrClJcfm8
-Blog: https://www.saturnflyer.com/blog/enforcing-encapsulation-with-east-oriented-code
-- https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-1
-- https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-2
-- https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-3
-- https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-4
-
-**Sandi Metz** has a nice talk on roles & injection: 'Nothing is Something'
-- talk: https://www.youtube.com/watch?v=OMPfEXIlTVE
-- blog: https://www.sandimetz.com/blog/2014/9/9/shape-at-the-bottom-of-all-things
-
-
-# Eastward WebApp?
-
-**Roda** - https://roda.jeremyevans.net/
-**hanami** - https://hanamirb.org/
-**Sinatra** - http://sinatrarb.com/
-**Trailblazers** - http://trailblazer.to/
-
-**Decoupled Rails**
-
-**Jim Wienrich** - _Decoupling from Rails_, (CincyRb, Oct 15, 2013)
-EastCode/HexCode with a web app
-- VIDEO: https://www.youtube.com/watch?v=tg5RFeSfBM4
-- CODE: https://github.com/jimweirich/wyriki
-Experimental Rails application to explore decoupling app logic from Rails.
-
-**Robert Martin** - _Architecture the Lost Years_, (Keynote at Ruby Midwest 2011)
-inspired _Decoupling from Rails_ 
-- https://www.youtube.com/watch?v=hALFGQNeEnU
-- https://www.youtube.com/watch?v=HhNIttd87xs
-
-### SUPPORT for "Decoupled Rails" - by Robert C. Martin (Uncle Bob)
-Test Induced Design Damage?
-https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html
-
-
-### CRITISM against "Decoupled Rails" - by DHH
-Blog: There may well be proper uses for it outside the domain of web apps.
-https://dhh.dk/2014/test-induced-design-damage.html
-
-DHH Sample Code (from Decoupling from Rails talk) - test_induced_design_damage.rb
-code & discussion
-https://gist.github.com/dhh/4849a20d2ba89b34b201
-
-
-
-### Context when I found VERY HELPFUL
+#### Context when I found VERY HELPFUL
 
 Data transfer between many services.
 Differing Changes needed different triggers (applied, application fee paid, application received & completed, accepted by school, acceptance confirmed, tution paid, health records submitted, travel plans submitted, visa approved, ...)
 Differing Services need different dqta formats (CSV, PNG, EXCEL, API (json & objects))
 Differing Services had differnt data transport needs (FTP, SCP, API, ect)
-
-### Services Summary 
 
 #### Data Sources
 - HR Server (master data source for employees)
@@ -145,6 +88,60 @@ Differing Services had differnt data transport needs (FTP, SCP, API, ect)
 
 
 
+## Resources 
+
+**James Ladd** - started Eastward Oriented (original blog is gone)
+- new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
+
+**Jim Gay** EASTWARD APPLIED to RUBY: (RubyConf 2014) Eastward Ho!
+- Talk: https://www.youtube.com/watch?v=kXcrClJcfm8
+- Blog: https://www.saturnflyer.com/blog/enforcing-encapsulation-with-east-oriented-code
+  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-1
+  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-2
+  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-3
+  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-4
+
+**Sandi Metz** has a nice talk on roles & injection: 'Nothing is Something'
+- talk: https://www.youtube.com/watch?v=OMPfEXIlTVE
+- blog: https://www.sandimetz.com/blog/2014/9/9/shape-at-the-bottom-of-all-things
+
+
+# Eastward/Decoupled WebApp?
+
+Lots of efforts
+- **Roda** - https://roda.jeremyevans.net/
+- **Hanami** - https://hanamirb.org/
+- **Sinatra** - http://sinatrarb.com/
+- **Trailblazers** - http://trailblazer.to/
+
+## Decoupled (Hexagonal) Rails
+
+**Jim Wienrich** - _Decoupling from Rails_, (CincyRb, Oct 15, 2013)
+- VIDEO: https://www.youtube.com/watch?v=tg5RFeSfBM4
+- CODE: https://github.com/jimweirich/wyriki
+Experimental Rails application to explore decoupling app logic from Rails.
+
+**Robert Martin** - _Architecture the Lost Years_, (Keynote at Ruby Midwest 2011)
+inspired _Decoupling from Rails_ 
+- https://www.youtube.com/watch?v=hALFGQNeEnU
+- https://www.youtube.com/watch?v=HhNIttd87xs
+
+#### SUPPORT for "Decoupled Rails" - by Robert C. Martin (Uncle Bob)
+Test Induced Design Damage?
+https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html
+
+
+#### CRITISM against "Decoupled Rails" - by DHH
+Blog: There may well be proper uses for it outside the domain of web apps.
+https://dhh.dk/2014/test-induced-design-damage.html
+
+DHH Sample Code (from Decoupling from Rails talk) - test_induced_design_damage.rb
+code & discussion
+https://gist.github.com/dhh/4849a20d2ba89b34b201
+
+
+
+
 # Further Info
 
 **James Ladd**
@@ -162,22 +159,31 @@ In addition to East Oriented Design I also promote following the Object Calisthe
 https://github.com/TheSecretSquad/chess
 - Suggested Blog (suumary):
 https://thesecretsquad.wordpress.com/2014/10/25/dazed-and-confuzzled/
-The receiving objects respond to messages by changing their state or sending other messages, which their collaborators receive, and so on. Objects don’t know who is responding to the message, and in many cases they don’t know what will happen in response. They just know to send the message and trust the object hooked up to it at run time responds with the correct behavior.
+
+**Pete's Summary**
+The receiving objects respond to messages by changing their state or sending other messages, which their collaborators receive, and so on. Objects don’t know who is responding to the message, and in many cases they don’t know what will happen in response. They 
+
+just know to send the message and trust the object hooked up to it at run time responds with the correct behavior.
 The thing about messaging is data becomes irrelevant. Data is hidden within objects, and used to store the state of objects. Objects use this state to decide which messages they should send. Objects can’t ask collaborators for their state or data and operate on it. The only way objects release state is by sending a message signaling a significant event. Other objects can register to receive the message and respond to it. This type of design naturally leads to East Oriented code because you’re not returning data (west).
 
 We are attempting to avoid unneeded context
 - East send message to immediate neighbor only
 - Trust the receiving object to respond correctly 
 - The messages should focus on what not how (method names need to focus on a delegated activity)
-very flexible if action is injected (like a template): printAddress(format: HtmlFormat)
+
 
 **Sandi Metz** (https://www.sandimetz.com/)
+
 _Practical Object-Oriented Design in Ruby_ (https://www.poodr.com/)
 The public interface to an object is not “what the object does”. The public interface to an object consists of the messages it responds to; “what an object does” consists of the messages it sends.
+
+**Method Naming** for good messaging:
+
 _avoid_
-dog.express_happiness if ball_thrown
+- dog.express_happiness if ball_thrown
+
 _use_
-dog.ball_thrown
+- dog.ball_thrown
 
 
 **Kent Beck** and **Ward Cunningham** say in (http://c2.com/doc/oopsla89/paper.html), “The most difficult problem in teaching object-oriented programming is getting the learner to give up the global knowledge of control that is possible with procedural programs, and rely on the local knowledge of objects to accomplish their tasks.”[3]
