@@ -1,10 +1,12 @@
 # Eastward Oriented
 
+Presentation on Messaging with code samples using East Orientation (& injection)
+- *Eastward* is sending a message
+- *Westward* is recieving a message
 
 ## Summary
 
-MESSAGING (Focus of OOD)
-- tell dont ask!
+- tell (& trust) don't ask!
 - avoid unneeded context
 
 GOAL:
@@ -29,17 +31,21 @@ East Oriented (Results)
 
 ## Background Info
 
-by James Ladd (Java): 
-- new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
-- original post "A Design Compass: East Oriented": http://jamesladdcode.com/2007/02/14/east-a-technique/
-
 Many people cite this souce as inspiration: _The Meaning of "Object-Oriented Programming"_
 http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
 
 Alan Kay Quotes: 
 http://mythz.servicestack.net/blog/2013/02/27/the-deep-insights-of-alan-kay/
 
-James Ladd
+### James Ladd: 
+- new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
+- original post "A Design Compass: East Oriented": http://jamesladdcode.com/2007/02/14/east-a-technique/
+
+In addition to East Oriented Design I also promote following the Object Calisthenics approach (http://jamesladdcode.com/2017/02/03/object-calisthenics/)
+- Object Calisthenics are programming exercises, formalized as a set of 9 rules invented by Jeff Bay in the book: 
+  - _The ThoughtWorks Anthology (out of Print),_ by Jeff Bay
+  - Jeff Bay also wrote this article (still available): https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf
+
 - Suggested sample code (chess game & discussion) 
 https://github.com/TheSecretSquad/chess
 - Suggested Blog (suumary):
@@ -132,11 +138,13 @@ https://gist.github.com/dhh/4849a20d2ba89b34b201
 
 
 
-## USE CASES
+## USE CASES 
 
-### Jobs?
+- CLI scripts
+- Backtround Jobs
+- Data conversions outputs
 
-### Data Conversion
+### Context when I used
 
 Data transfer between many services.
 Differing Changes needed different triggers (applied, application fee paid, application received & completed, accepted by school, acceptance confirmed, tution paid, health records submitted, travel plans submitted, visa approved, ...)
@@ -170,7 +178,5 @@ Differing Services had differnt data transport needs (FTP, SCP, API, ect)
     (allows academic planners to coordinate with admissions on new students interests and abilities before creating academic schedules)
 
 ### Sample Code
-
-sorry no access to original & way to complex to easily present
 
 *Address Code* has many analogies (and much smaller domain to code)
