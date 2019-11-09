@@ -132,7 +132,11 @@ https://gist.github.com/dhh/4849a20d2ba89b34b201
 
 
 
-## USE CASE - where East was very helpful
+## USE CASES
+
+### Jobs?
+
+### Data Conversion
 
 Data transfer between many services.
 Differing Changes needed different triggers (applied, application fee paid, application received & completed, accepted by school, acceptance confirmed, tution paid, health records submitted, travel plans submitted, visa approved, ...)
