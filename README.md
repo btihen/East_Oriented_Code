@@ -1,4 +1,4 @@
-# East Oriented Code
+# **East Oriented Code**
 
 **Better Message Passing -> Better Object Code**
 
