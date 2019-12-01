@@ -50,26 +50,32 @@ module CountryLayout
   end
   module Usa
     def self.lines(address)
+      street_and_house  = [address.house_nr, address.street].compact.join(' ')
+      street_and_house  = nil                    if street_and_house.empty?
+
       state_and_zipcode = [address.state, address.zipcode].compact.join(' ')
       state_and_zipcode = nil                    if state_and_zipcode.empty?
 
       city_state_zip    = [address.city, state_and_zipcode].compact.join(', ')
       city_state_zip    = nil                    if city_state_zip.empty?
-      [address.street, city_state_zip, address.country].compact
+      [street_and_house, city_state_zip, address.country].compact
     end
   end
   module Switzerland
     def self.lines(address)
-      zip_city = [address.zipcode, address.city].compact.join(' ')
-      zip_city = nil                             if zip_city.empty?
-      kanton   = nil
-      kanton   = address.state                   if zip_city.nil?
-      kanton   = "(#{address.state})"            if zip_city && address.state
+      street_and_house  = [address.street, address.house_nr].compact.join(' ')
+      street_and_house  = nil                    if street_and_house.empty?
 
-      zip_city_kanton = [address.zipcode, address.city, kanton].compact.join(' ')
-      zip_city_kanton = nil                      if zip_city_kanton.empty?
+      zip_city          = [address.zipcode, address.city].compact.join(' ')
+      zip_city          = nil                    if zip_city.empty?
+      kanton            = nil
+      kanton            = address.state          if zip_city.nil?
+      kanton            = "(#{address.state})"   if zip_city && address.state
 
-      [address.street, zip_city_kanton, address.country].compact
+      zip_city_kanton   = [address.zipcode, address.city, kanton].compact.join(' ')
+      zip_city_kanton   = nil                    if zip_city_kanton.empty?
+
+      [address.house_name, street_and_house, zip_city_kanton, address.country].compact
     end
   end
 end
@@ -107,7 +113,7 @@ ti_params = {
   house_name: 'Casa Vechia',
   street:     'Corte di Bigogno',
   house_nr:   '2',
-  city:       'Agra (Bigogno)',
+  city:       'Agra/Bigogno',
   state:      'Ticino',
   zipcode:    '6927',
   country:    'Switzerland',
@@ -131,6 +137,11 @@ person  = ScopedPerson.new(name: 'William Tihen', address: address)
 person.display_address(template: FormatTemplate::Html.new)
 
 puts "*" * 15
+address = ScopedAddress.new(ti_params)
+person  = ScopedPerson.new(name: 'Bill Tihen', address: address)
+person.display_address
+
+puts "*" * 15
 address = ScopedAddress.new(bern_params)
 person  = ScopedPerson.new(name: 'Bill Tihen', address: address)
 person.display_address
@@ -140,6 +151,11 @@ puts "*" * 15
 address = ScopedAddress.new(usa_params)
 person  = ScopedPerson.new(name: 'William Tihen', address: address)
 person.display_address(template: FormatTemplate::Html.new, scope: DataScope::ShippingInfo.new)
+
+puts "*" * 15
+address = ScopedAddress.new(ti_params)
+person  = ScopedPerson.new(name: 'Bill Tihen', address: address)
+person.display_address(scope: DataScope::ShippingInfo.new)
 
 puts "*" * 15
 address = ScopedAddress.new(bern_params)

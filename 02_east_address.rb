@@ -19,12 +19,13 @@ end
 
 class Address
   def initialize(**args)
-    @street   = args[:street]
-    @house_nr = args[:house_nr]
-    @city     = args[:city]
-    @state    = args[:state]
-    @zipcode  = args[:zipcode]
-    @country  = args[:country]
+    @street     = args[:street]
+    @house_nr   = args[:house_nr]
+    @house_name = args[:house_name]
+    @city       = args[:city]
+    @state      = args[:state]
+    @zipcode    = args[:zipcode]
+    @country    = args[:country]
   end
   # ok to query self (rule 2)
   def display(name:, template:)
