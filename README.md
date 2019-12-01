@@ -48,13 +48,24 @@ I have found this wonderful when the architecture is basically:
 
 **input -> processing -> output**
 
-and _very challenging (even controversial) to use with a "controller" architecture._
-
+Examples:
 - CLI scripts
 - Background Jobs
 - Data conversions outputs
 
-**[My Sample Use Case](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)**
+**[Real Use Case](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)**
+
+**[Controversial with Controllers (MVC)](https://github.com/btihen/East_Oriented_Code/blob/master/Controversy_with_Controllers.rb)** - _it is challenging (even controversial) to use with a "controller" architecture._
+
+However with Rails we can use 'east coding' in isolated parts by returning view objects to the controller using:
+- command objects (runners)
+- service objects (api interfaces)
+- business objects (rules objects)
+- input objects
+- view objects (view models)
+- background jobs
+- repository
+- query objects
 
 ## __CODE__
 
@@ -65,9 +76,7 @@ and _very challenging (even controversial) to use with a "controller" architectu
 - **[01_east_west_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/01_east_west_address.rb)** - is east-west, very simple and clear -- great when very simple and flexibility isn't needed
 - **[02_east_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/02_east_address.rb)** - is east only is great when additional for flexible outputs and keeping processing clear (only objects can change and query themselves)
 
-### _Time Permitting_
+### _With Time and Interest_
 
 - **[00_jim_gay_refactor_process.md](https://github.com/btihen/East_Oriented_Code/blob/master/00_jim_gay_refactor_process.md)** - Jim Gay's refactoring process from East/West to West
 - **[03_east_injection_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/03_east_injection_address.rb)** - injection and decorators allow lots of flexibility and complexity while preserving the benefits of East Orientated Message passing with one place data is mutated and single purpose for each class.
-
-**[Controversy with Controllers (MVC)](https://github.com/btihen/East_Oriented_Code/blob/master/Controversy_with_Controllers.rb)**
