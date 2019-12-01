@@ -25,9 +25,9 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 ### _East Code Practices_
 
 1. **Methods Always return 'self'** - TELL DON'T ASK (factories/initializers are exempt)
-    - **Objects ONLY CHANGE own attributes** (avoid public attribute assignments)!!
-    - **Objects ONLY QUERY own methods** (avoid publicly visible attributes)
-2. **Break the Rules sparingly** - (pass only immutable value or view objects)
+    - **Objects ONLY CHANGE own attributes** - avoid public attribute assignments)!!
+    - **Objects ONLY QUERY (ask) own methods/attributes** - avoid publicly visible attributes and info-return methods)
+2. **Break the Rules sparingly** - pass view objects (ideally immutable), worst case a hash (or named tuple)
 
 **Upside**
 - enforces single purpose per class / method, which reduces coupling
