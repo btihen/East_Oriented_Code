@@ -11,8 +11,7 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 ### People / History
 
 **Dr. Alan Kay** - Rules to design good messaging; AKA good OOD
-Many people cite this source as messaging inspiration: _The Meaning of "Object-Oriented Programming"_
-http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
+Many people cite this source as messaging inspiration: _The Meaning of "Object-Oriented Programming"_ http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
 
 **James Ladd** - Created Eastward Oriented Rules (original blog is gone)
 - new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
@@ -20,10 +19,6 @@ http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
 **Jim Gay** EASTWARD APPLIED to RUBY: (RubyConf 2014) Eastward Ho!
 - Talk: https://www.youtube.com/watch?v=kXcrClJcfm8
 - Blog: https://www.saturnflyer.com/blog/enforcing-encapsulation-with-east-oriented-code
-  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-1
-  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-2
-  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-3
-  - https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-4
 
 ### East Code Practices
 
