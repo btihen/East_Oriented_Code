@@ -2,15 +2,15 @@
 
 **Better Message Passing -> Better Object Code**
 
-## INTRO
+## ORIENTATION
 
-### Definition
+#### Definition
 
 Presentation on Messaging with code samples using East Orientation (& Injection)
 - **Eastward** is sending a message (telling)
 - **Westward** is receiving a message (usually after asking)
 
-### People / History
+#### People / History
 
 **Dr. Alan Kay** - Rules to design good messaging; AKA good OOD.  Many people cite this source as messaging inspiration:
   - _The Meaning of "Object-Oriented Programming"_ http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
@@ -22,7 +22,7 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 - Talk: https://www.youtube.com/watch?v=kXcrClJcfm8
 - Blog: https://www.saturnflyer.com/blog/enforcing-encapsulation-with-east-oriented-code
 
-### East Code Practices
+#### East Code Practices
 
 1. **Methods Always return 'self'** - TELL DON'T ASK (factories/initializers are exempt)
     - **Objects ONLY CHANGE own attributes** (avoid public attribute assignments)!!
@@ -37,12 +37,12 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 
 **Downside** - well organized and well named files are important - this technique usually leads to MANY small files.
 
-### My Informal Usage
+#### My Informal Usage
 
 - **Tell, don't ask** - be private (single responsibility)
 - **Exception** - pass a data/value object for output or worse case a hash
 
-### USE CASES
+#### USE CASES
 
 I have found this wonderful when the architecture is basically:
 **input -> processing -> output**
@@ -56,7 +56,7 @@ and _very challenging (even controversial) to use with a "controller" architectu
 
 ## CODE
 
-### Sample Code
+#### Sample Code
 
 **Jim Gay's** sample address code reminded me of a simple data flow (between servers)
 
