@@ -2,7 +2,7 @@
 
 **Better Message Passing -> Better Object Code**
 
-## BACKGROUND
+## __BACKGROUND__
 
 ### _Definition_
 
@@ -54,7 +54,7 @@ and _very challenging (even controversial) to use with a "controller" architectu
 
 **[My Sample Use Case](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)**
 
-## CODE
+## __CODE__
 
 ### _Sample Code_
 
