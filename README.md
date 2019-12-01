@@ -2,6 +2,8 @@
 
 **Better Message Passing -> Better Object Code**
 
+## INTRO
+
 ### Definition
 
 Presentation on Messaging with code samples using East Orientation (& Injection)
@@ -10,8 +12,8 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 
 ### People / History
 
-**Dr. Alan Kay** - Rules to design good messaging; AKA good OOD
-Many people cite this source as messaging inspiration: _The Meaning of "Object-Oriented Programming"_ http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
+**Dr. Alan Kay** - Rules to design good messaging; AKA good OOD.  Many people cite this source as messaging inspiration:
+  - _The Meaning of "Object-Oriented Programming"_ http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
 
 **James Ladd** - Created Eastward Oriented Rules (original blog is gone)
 - new post: "Why we fail at OO": http://jamesladdcode.com/?p=12
@@ -35,13 +37,12 @@ Many people cite this source as messaging inspiration: _The Meaning of "Object-O
 
 **Downside** - well organized and well named files are important - this technique usually leads to MANY small files.
 
-### Informal Usage
+### My Informal Usage
 
 - **Tell, don't ask** - be private (single responsibility)
 - **Exception** - pass a data/value object for output or worse case a hash
 
-
-## USE CASES
+### USE CASES
 
 I have found this wonderful when the architecture is basically:
 **input -> processing -> output**
@@ -53,14 +54,14 @@ and _very challenging (even controversial) to use with a "controller" architectu
 
 **[My Sample Use Case](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)**
 
+## CODE
 
-## Sample Code
+### Sample Code
 
-*Jim Gay's** sample address code reminded me of when Eastward really helped me
-(moving data between servers with many format and transport needs and based on many different triggers)
+**Jim Gay's** sample address code reminded me of a simple data flow (between servers)
 
-- **[01_east_west_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/01_east_west_address.rb)** is east-west, very simple and clear -- great when very simple and flexibility isn't needed
-- **[02_east_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/02_east_address.rb)** is east only is great when additional for flexible outputs and keeping processing clear (only objects can change and query themselves)
+- **[01_east_west_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/01_east_west_address.rb)** - is east-west, very simple and clear -- great when very simple and flexibility isn't needed
+- **[02_east_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/02_east_address.rb)** - is east only is great when additional for flexible outputs and keeping processing clear (only objects can change and query themselves)
 
 #### Time Permitting
 
@@ -68,24 +69,3 @@ and _very challenging (even controversial) to use with a "controller" architectu
 - **[03_east_injection_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/03_east_injection_address.rb)** - injection and decorators allow lots of flexibility and complexity while preserving the benefits of East Orientated Message passing with one place data is mutated and single purpose for each class.
 
 **[Controversy with Controllers (MVC)](https://github.com/btihen/East_Oriented_Code/blob/master/Controversy_with_Controllers.rb)**
-
-**Robert Martin** - _Architecture the Lost Years_, (Keynote at Ruby Midwest 2011)
-inspired _Decoupling from Rails_
-- https://www.youtube.com/watch?v=hALFGQNeEnU
-- https://www.youtube.com/watch?v=HhNIttd87xs
-
-**Jim Wienrich** - _Decoupling from Rails_, (CincyRb, Oct 15, 2013)
-- VIDEO: https://www.youtube.com/watch?v=tg5RFeSfBM4
-- CODE: https://github.com/jimweirich/wyriki
-Experimental Rails application to explore decoupling app logic from Rails.
-
-#### SUPPORT for "Decoupled Rails" - by Robert C. Martin (Uncle Bob)
-Test Induced Design Damage?
-https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html
-
-#### CRITICISM against "Decoupled Rails" - by DHH
-Blog: There may well be proper uses for it outside the domain of web apps.
-https://dhh.dk/2014/test-induced-design-damage.html
-
-DHH sample code / discussion called 'test induced design damage'
-https://gist.github.com/dhh/4849a20d2ba89b34b201
