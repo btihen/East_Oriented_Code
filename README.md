@@ -45,7 +45,9 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 ### _USE CASES_
 
 I have found this wonderful when the architecture is basically:
+
 **input -> processing -> output**
+
 and _very challenging (even controversial) to use with a "controller" architecture._
 
 - CLI scripts
