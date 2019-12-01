@@ -23,8 +23,8 @@ Many people cite this source as messaging inspiration: _The Meaning of "Object-O
 ### East Code Practices
 
 1. **Methods Always return 'self'** - TELL DON'T ASK (factories/initializers are exempt)
-  - **Objects ONLY CHANGE own attributes** (avoid public attribute assignments)!!
-  - **Objects ONLY QUERY own methods** (avoid publicly visible attributes)
+    - **Objects ONLY CHANGE own attributes** (avoid public attribute assignments)!!
+    - **Objects ONLY QUERY own methods** (avoid publicly visible attributes)
 2. **Break the Rules sparingly** - (pass only immutable value or view objects)
 
 **Upside**
@@ -40,6 +40,20 @@ Many people cite this source as messaging inspiration: _The Meaning of "Object-O
 - **Tell, don't ask** - be private (single responsibility)
 - **Exception** - pass a data/value object for output or worse case a hash
 
+
+## USE CASES
+
+I have found this wonderful when the architecture is basically:
+**input -> processing -> output**
+and _very challenging (even controversial) to use with a "controller" architecture._
+
+- CLI scripts
+- Background Jobs
+- Data conversions outputs
+
+**[My Sample Use Case](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)**
+
+
 ## Sample Code
 
 *Jim Gay's** sample address code reminded me of when Eastward really helped me
@@ -48,12 +62,12 @@ Many people cite this source as messaging inspiration: _The Meaning of "Object-O
 - **[01_east_west_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/01_east_west_address.rb)** is east-west, very simple and clear -- great when very simple and flexibility isn't needed
 - **[02_east_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/02_east_address.rb)** is east only is great when additional for flexible outputs and keeping processing clear (only objects can change and query themselves)
 
-**Time Permitting**
+#### Time Permitting
+
 - **[00_jim_gay_refactor_process.md](https://github.com/btihen/East_Oriented_Code/blob/master/00_jim_gay_refactor_process.md)** - Jim Gay's refactoring process from East/West to West
 - **[03_east_injection_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/03_east_injection_address.rb)** - injection and decorators allow lots of flexibility and complexity while preserving the benefits of East Orientated Message passing with one place data is mutated and single purpose for each class.
 
-
-## Controversy using with Controllers (MVC)
+**[Controversy with Controllers (MVC)](https://github.com/btihen/East_Oriented_Code/blob/master/Controversy_with_Controllers.rb)**
 
 **Robert Martin** - _Architecture the Lost Years_, (Keynote at Ruby Midwest 2011)
 inspired _Decoupling from Rails_
@@ -75,16 +89,3 @@ https://dhh.dk/2014/test-induced-design-damage.html
 
 DHH sample code / discussion called 'test induced design damage'
 https://gist.github.com/dhh/4849a20d2ba89b34b201
-
-
-## GOOD USE CASES
-
-I have found this wonderful when the architecture is basically:
-**input -> processing -> output**
-and _very challenging (even controversial) to use with a "controller" architecture._
-
-- CLI scripts
-- Background Jobs
-- Data conversions outputs
-
-[My Sample Use Case]()

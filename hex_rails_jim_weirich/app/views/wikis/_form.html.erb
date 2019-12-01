@@ -1,0 +1,15 @@
+<%= form_for(@wiki) do |f| %>
+<%= render "common/errors", model: @wiki %>
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :home_page %><br />
+  <%= f.text_field :home_page %>
+</p>
+<p>
+  <%= f.submit class: "small radius button" %>
+  <%= link_to "Cancel", @wiki, class: "small radius button" %>
+</p>
+<% end %>

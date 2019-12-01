@@ -1,0 +1,21 @@
+<div class="row separate">
+  <div class="small-6 columns">
+    <h1 id="page-title"><%= @page.name %></h1>
+  </div>
+  <div class="small-4 columns">
+    <p class="actions">
+      <%= link_to "Edit", edit_wiki_page_path(@page.wiki, @page), button_css %>
+      <%= link_to "Delete", wiki_page_path(@page.wiki, @page),
+          button_css.merge(
+            method: :delete,
+            data: { confirm: "Do you really want to delete page #{@page.name}?" })
+          %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns" id="page-content">
+    <%= @page.html_content(self).html_safe %>
+  </div>
+</div>
