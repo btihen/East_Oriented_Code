@@ -1,6 +1,6 @@
 # **East Oriented Code**
 
-**Better Message Passing -> Better Object Code**
+_Better Message Passing -> Better Object Code_
 
 ## __BACKGROUND__
 
@@ -32,14 +32,14 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 
 ### _My Informal Practices_
 
-Still helpful for daily coding
+Helpful for daily coding - when East Oriented not practical
 - **Tell, don't ask** - be private (single responsibility)
 - **Exceptions common** - pass a data for output & formatting - using view-models, value-objects, struct or minimally a hash
 
 
 ### _Pros & Cons_
 
-**UPSIDE**
+**UPSIDES**
 - enforces single purpose per class / method, which reduces coupling
 - enforces _tell don't ask_ message passing, which reduces unexpected side effects
 - easy to use with _injection_ and _behavior decorators_ so relatively easy to extend
@@ -56,7 +56,7 @@ Examples:
 
 **[Real Use Case](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)**
 
-**DOWNSIDE**
+**DOWNSIDES**
 - well organized and well named files are important - this technique usually leads to MANY small files.
 - Rails we can use 'east coding' in isolated parts by returning view objects to the controller using:
     - command objects (runners)
