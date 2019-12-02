@@ -37,15 +37,9 @@ Helpful for daily coding - when East Oriented not practical
 - **Exceptions common** - pass a data for output & formatting - using view-models, value-objects, struct or minimally a hash
 
 
-### _Pros & Cons_
+### _HELPFUL & CONTROVERSIAL_
 
-**UPSIDES**
-- enforces single purpose per class / method, which reduces coupling
-- enforces _tell don't ask_ message passing, which reduces unexpected side effects
-- easy to use with _injection_ and _behavior decorators_ so relatively easy to extend
-- easy to know where a data is mutated, formatted and stored - so generally easy to debug and adapt as changes are needed & if well decoupled using injection, and decorators it is easy to make changes without side-effects or to add new components.
-
-I have found this wonderful when the architecture is basically:
+**VERY HELPFUL:** with a pipeline architecture:
 
 **input -> processing -> output**
 
@@ -54,21 +48,14 @@ Examples:
 - Background Jobs
 - Data conversions outputs
 
-**[Real Use Case](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)**
+*[Use Case - A Data Hub](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)*
 
-**DOWNSIDES**
-- well organized and well named files are important - this technique usually leads to MANY small files.
-- Rails we can use 'east coding' in isolated parts by returning view objects to the controller using:
-    - command objects (runners)
-    - input objects
-    - view objects (view models)
-    - service objects (api interfaces)
-    - business objects (rules objects)
-    - background jobs
-    - DB repository
-    - DB query objects
-- challenging (even controversial) to use with a "controller" architecture -
-    **[Controversial with Controllers (MVC)](https://github.com/btihen/East_Oriented_Code/blob/master/Controversy_with_Controllers.rb)**
+**CONTROVERSIAL** to use with a "controller" architecture - that expects to "control" - the opposite of East Oriented code.
+
+* **Jim Weirich** - [Decoupling from Rails](https://www.youtube.com/watch?v=tg5RFeSfBM4) & his [sample code (summarized by DHH)](https://gist.github.com/dhh/4849a20d2ba89b34b201)
+* **DHH** - [Calls this Test Driven Damage](https://dhh.dk/2014/test-induced-design-damage.html)
+* **Uncle Bob** [Support for Decoupling](https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html) & [Architecture the Lost Years](https://www.youtube.com/watch?v=hALFGQNeEnU)
+
 
 ## __CODE__
 
