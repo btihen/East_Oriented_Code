@@ -24,22 +24,17 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 
 ### _Practices_
 
-1. **Methods return 'self'** - TELL DON'T ASK - factories & initializers exempt
-    - **Objects ONLY CHANGE own attributes** - avoid public attribute assignments!
-    - **Objects ONLY QUERY (ask) own methods/attributes** - avoid publicly visible attributes and info-return methods
-2. **Break the Rules sparingly** - pass view objects (ideally immutable), worst case a hash (or named tuple)
+Enforced **Tell - Don't Ask**
 
-
-### _My Informal Practices_
-
-Helpful for daily coding - when East Oriented not practical
-- **Tell, don't ask** - be private (single responsibility)
-- **Exceptions common** - pass a data for output & formatting - using view-models, value-objects, struct or minimally a hash
+1. **Public Methods return 'self'** - factories & initializers exempt, that means:
+2. **Objects ONLY CHANGE/Inspect own attributes** - avoid public setters & getters
+3. **Objects ONLY QUERY own methods** - avoid answering state queries (the God classes can't function)
+4. **Break the Rules sparingly** - mostly for output -- then pass a simple object (ideally immutable) - _think Structs & View-Models_
 
 
 ### _HELPFUL & CONTROVERSIAL_
 
-**VERY HELPFUL:** with a pipeline architecture:
+**EASY & HELPFUL:** with a pipeline architecture:
 
 **input -> processing -> output**
 
@@ -48,7 +43,7 @@ Examples:
 - Background Jobs
 - Data conversions outputs
 
-*[Use Case - A Data Hub](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)*
+*[Use Case - A Data Exchange](https://github.com/btihen/East_Oriented_Code/blob/master/USE_CASE_NOTES.md)*
 
 **CONTROVERSIAL** to use with a "controller" architecture - that expects to "control" - the opposite of East Oriented code.
 
@@ -57,16 +52,24 @@ Examples:
 * **Uncle Bob** [Support for Decoupling](https://blog.cleancoder.com/uncle-bob/2014/05/01/Design-Damage.html) & [Architecture the Lost Years](https://www.youtube.com/watch?v=hALFGQNeEnU)
 
 
+### _Informal Practice_
+
+When Strict East isn't practical
+
+Helpful for daily coding - when East Oriented not practical
+- **Tell, don't ask** - be private (single responsibility)
+- **Exceptions common** - pass a data for output & formatting - using view-models, value-objects, struct or minimally a hash
+
+In any-case I enjoy the practice of getting as close as possible to East Oriented (along with Sandi Metz's Code Complexity Rules & Behavior Injection)
+
 ## __CODE__
 
-### _Sample Code_
-
-**Jim Gay's** sample address code reminded me of a simple data flow (between servers)
+I don't have access to the _Data Exchange_ I wrote for my previous employer - but **Jim Gay's** address code can use a similar pipeline flow
 
 - **[01_east_west_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/01_east_west_address.rb)** - is east-west, very simple and clear -- great when very simple and flexibility isn't needed
 - **[02_east_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/02_east_address.rb)** - is east only is great when additional for flexible outputs and keeping processing clear (only objects can change and query themselves)
 
-### _With Time and Interest_
+_Given Time and Interest_
 
 - **[00_jim_gay_refactor_process.md](https://github.com/btihen/East_Oriented_Code/blob/master/00_jim_gay_refactor_process.md)** - Jim Gay's refactoring process from East/West to West
 - **[03_east_injection_address.rb](https://github.com/btihen/East_Oriented_Code/blob/master/03_east_injection_address.rb)** - injection and decorators allow lots of flexibility and complexity while preserving the benefits of East Orientated Message passing with one place data is mutated and single purpose for each class.
