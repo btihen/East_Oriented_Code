@@ -1,6 +1,6 @@
 # **East Oriented Code**
 
-_Better Message Passing -> Better Object Code_
+#### Better Message Passing == Better Code
 
 ## __BACKGROUND__
 
@@ -10,7 +10,7 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 - **Eastward** is sending a message (telling)
 - **Westward** is receiving a message (usually after asking)
 
-### _People & History_
+### _CREDIT_
 
 - **Dr. Alan Kay** - Rules to design good messaging; AKA good OOD.  Many people cite this source as messaging inspiration:
     - _The Meaning of "Object-Oriented Programming"_ http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en
@@ -20,17 +20,18 @@ Presentation on Messaging with code samples using East Orientation (& Injection)
 
 - **Jim Gay** EASTWARD APPLIED to RUBY: (RubyConf 2014) Eastward Ho!
     - **Talk:** https://www.youtube.com/watch?v=kXcrClJcfm8
-    - **Blog:** https://www.saturnflyer.com/blog/enforcing-encapsulation-with-east-oriented-code
+    - **Blog:** https://www.saturnflyer.com/blog/enforcing-encapsulation-with-east-oriented-code & https://www.saturnflyer.com/blog/the-4-rules-of-east-oriented-code-rule-1
 
 ### _Practices_
 
 Enforced **Tell - Don't Ask**
 
-1. **Public Methods return 'self'** - factories & initializers exempt, that means:
-2. **Objects ONLY CHANGE/Inspect own attributes** - avoid public setters & getters
-3. **Objects ONLY QUERY own methods** - avoid answering state queries (the God classes can't function)
+1. **Always Return 'self'** - especially public methods - (factories & initializers exempt)
+2. **Objects MAY ONLY QUERY itself** - avoid public getters!
+3. **Objects MAY ONLY CHANGE their own state** - avoid public setters!
 4. **Break the Rules sparingly** - mostly for output -- then pass a simple object (ideally immutable) - _think Structs & View-Models_
 
+Rules 2 & 3 are basically unnecessary if rule 1 is followed closely!
 
 ### _HELPFUL & CONTROVERSIAL_
 
@@ -57,10 +58,10 @@ Examples:
 When Strict East isn't practical
 
 Helpful for daily coding - when East Oriented not practical
-- **Tell, don't ask** - be private (single responsibility)
+- **Tell, don't ask** - Could I return self?, What else canI make private?
 - **Exceptions common** - pass a data for output & formatting - using view-models, value-objects, struct or minimally a hash
 
-In any-case I enjoy the practice of getting as close as possible to East Oriented (along with Sandi Metz's Code Complexity Rules & Behavior Injection)
+I like to explore the practice of getting as close as possible to East Oriented (along with Sandi Metz's Code Complexity Rules & Behavior Injection)
 
 ## __CODE__
 
